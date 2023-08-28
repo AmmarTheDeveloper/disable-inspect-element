@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Disabled inspect element using js</title>
+	<style>
+
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+		* {
+
+			margin: 0;
+			font-family: 'Poppins', sans-serif;
+
+		}
+
+		body {
+
+			background-color: #ccc;
+			color:#1d1d1d;
+			padding: 20px;
+
+		}
+
+		h1{
+
+			font-weight:600;
+			text-transform: capitalize;
+			font-size:30px;
+			text-align:center;
+
+		}
+
+		h3{
+
+			text-align:center;
+			font-weight:500;
+			font-size:20px;
+			margin-bottom:20px;
+
+		}
+
+		ul{
+
+			margin-bottom:20px;
+
+		}
+		img{
+
+			margin:10px;
+			max-width:100%;
+
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<h1>Disable inspect element using js</h1>
+	<h3>from these keys we can see inspect element or source code</h3>
+	<ul>
+
+		<li>Right click</li>
+		<li>F12</li>
+		<li>Control + Shift + J</li>
+		<li>Control + Shift + I</li>
+		<li>Control + Shift + U</li>
+		<li>Control + U</li>
+
+	</ul>
+	<ol>
+		<li>First we have to disable right click for that we have to set oncontextmenu="return false" on body from which
+			we can prevent from user right click for context menu like this : <br>
+		
+			<img src="img-1.JPG" >
+
+		</li>
+		<li>
+			for shortcut keys we have get key on keydown on document then add if else conditions for shorcut keys like this : <br>
+			<img src="img-2.JPG" >
+		</li>
+	</ol>
+	<script>
+
+		const body = document.body
+		body.oncontextmenu = () => false
+
+		document.onkeydown = (e) => {
+
+			if (e.key == 'F12') {
+
+				alert("F12 pressed")
+				return false;
+
+			}
+
+			if (e.ctrlKey && e.shiftKey && (e.key == 'J' || e.key == 'I' || e.key == 'C')) {
+
+				alert(e.key + ' is pressed with control key and shiftkey')
+				return false
+
+			}
+
+			if (e.ctrlKey && (e.key == 'u' || e.key == 'U')) {
+
+				alert(e.key + ' is pressed with control key')
+				return false
+
+			}
+
+		}
+
+	</script>
+</body>
+
+</html>
